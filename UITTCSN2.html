@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tra cứu ngành học</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4ff;
+      color: #0036cc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: white; 
+      color: #0047FF;    
+      text-align: center;
+      padding: 20px 0;   
+      font-size: 2.2em;   
+      font-weight: bold;
+      border-bottom: 2px solid #0047FF; 
+    }
+
+    .hero {
+      height: 180px;
+      background: url('1523862552207.png') center center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content h1 {
+      font-size: 2em;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+      color: white;
+    }
+    .main-content {
+      flex: 1;
+      padding: 30px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .intro-section {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .intro-card {
+      flex: 1;
+      min-width: 200px;
+      max-width: 300px;
+      background: #e8f0ff;
+      color: #0047FF;
+      padding: 15px 10px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .intro-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .intro-card h3 {
+      font-size: 1em;
+      margin-bottom: 6px;
+    }
+    .intro-card p {
+      font-size: 0.85em;
+      line-height: 1.3;
+    }
+    .search-section {
+      margin-top: 20px;
+    }
+    .search-section h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #002fbb;
+    }
+    .search-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .search-box input, .search-box select, .search-box button {
+      padding: 12px 20px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+    .search-box button {
+      background: #0047FF;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .search-box button:hover {
+      background: #0036cc;
+    }
+    .school-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .school-item {
+      background: #eef5ff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .school-item:hover {
+      transform: translateY(-5px);
+    }
+    .school-item h4 {
+      color: #002fbb;
+      margin-bottom: 6px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #0047FF;
+      color: white;
+      font-size: 0.9em;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>Trang tra cứu ngành CNTT</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Hãy tìm ngành học phù hợp!</h1>
+  </div>
+</section>
+
+<div class="main-content">
+
+  <section class="intro-section">
+    <div class="intro-card">
+      <h3>🔍 Tra cứu ngành học</h3>
+      <p>Dễ dàng tìm kiếm ngành CNTT theo điểm số và sở thích.</p>
+    </div>
+    <div class="intro-card">
+      <h3>⚡ Tốc độ nhanh</h3>
+      <p>Kết quả trả về chỉ trong vài giây, tiết kiệm thời gian.</p>
+    </div>
+    <div class="intro-card">
+      <h3>🎯 Gợi ý ngành học</h3>
+      <p>Phân tích và đề xuất trường phù hợp với năng lực của bạn.</p>
+    </div>
+  </section>
+
+  <section class="search-section">
+    <h2>Tìm kiếm ngành học</h2>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Nhập tên trường, mã ngành...">
+      <select id="regionSelect">
+        <option value="">Chọn miền</option>
+        <option value="Miền Bắc">Miền Bắc</option>
+        <option value="Miền Trung">Miền Trung</option>
+        <option value="Miền Nam">Miền Nam</option>
+      </select>      
+      <button onclick="filterSchools()">Tìm kiếm</button>
+      <button onclick="resetSchools()" style="background: #ccc; color: #0036cc;">Xóa và đặt lại</button>
+    </div>
+
+    <div class="school-list" id="schoolList">
+   
+    </div>
+
+  </section>
+
+</div>
+
+<footer>© 2025 Hệ thống tra cứu ngành CNTT</footer>
+
+<script>
+  // Dữ liệu mẫu
+  const schools = [
+  { code: "BKA", name: "Đại học Bách khoa Hà Nội", englishName: "Hanoi University of Science and Technology (HUST)", founded: 1956, type: "Trường đại học công lập trọng điểm quốc gia", location: "Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội", website: "https://www.hust.edu.vn/", region: "Miền Bắc" },
+    { code: "QHI", name: "Trường Đại học Công nghệ – Đại học Quốc gia Hà Nội", englishName: "VNU University of Engineering and Technology (VNU-UET)", founded: 2004, type: "Trường đại học công lập, thành viên của Đại học Quốc gia Hà Nội", location: "144 Xuân Thủy, Cầu Giấy, Hà Nội", website: "https://uet.vnu.edu.vn/", region: "Miền Bắc" },
+    { code: "KCN", name: "Trường Đại học Khoa học và Công nghệ Hà Nội", englishName: "University of Science and Technology of Hanoi (USTH)", founded: 2009, type: "Trường đại học công lập quốc tế theo mô hình Pháp – Việt", location: "Tòa nhà Dự án USTH, 18 Hoàng Quốc Việt, Cầu Giấy, Hà Nội", website: "https://usth.edu.vn/", region: "Miền Bắc" },
+    { code: "GHA", name: "Trường Đại học Giao thông Vận tải Hà Nội", englishName: "University of Transport and Communications (UTC)", founded: 1945, type: "Trường đại học công lập", location: "Số 3 Cầu Giấy, phường Láng Thượng, quận Đống Đa, Hà Nội", website: "https://www.utc.edu.vn/", region: "Miền Bắc" },
+    { code: "KHA", name: "Trường Đại học Kinh tế Quốc dân", englishName: "National Economics University (NEU)", founded: 1956, type: "Trường đại học công lập trọng điểm về kinh tế", location: "207 Giải Phóng, phường Đồng Tâm, quận Hai Bà Trưng, Hà Nội", website: "https://www.neu.edu.vn/", region: "Miền Bắc" },
+    { code: "SPH", name: "Trường Đại học Sư phạm Hà Nội", englishName: "Hanoi National University of Education (HNUE)", founded: 1951, type: "Trường đại học công lập trọng điểm về đào tạo giáo viên và nghiên cứu khoa học giáo dục tại Việt Nam", location: "136 Xuân Thủy, phường Dịch Vọng Hậu, quận Cầu Giấy, Hà Nội", website: "https://hnue.edu.vn/", region: "Miền Bắc" },
+    { code: "TLA", name: "Trường Đại học Thủy lợi", englishName: "Thuyloi University (TLU)", founded: 1959, type: "Trường đại học công lập trọng điểm về kỹ thuật, đặc biệt trong lĩnh vực thủy lợi, tài nguyên nước và xây dựng", location: "175 Tây Sơn, phường Trung Liệt, quận Đống Đa, Hà Nội", website: "https://www.tlu.edu.vn/", region: "Miền Bắc" },
+    { code: "DCN", name: "Trường Đại học Công nghiệp Hà Nội", englishName: "Hanoi University of Industry (HAUI)", founded: 1898, type: "Trường đại học công lập đa ngành, đào tạo kỹ thuật - công nghệ và kinh tế", location: "Số 298, Đường Cầu Diễn, Quận Bắc Từ Liêm, Hà Nội", website: "https://www.haui.edu.vn/vn", region: "Miền Bắc" },
+    { code: "MDA", name: "Trường Đại học Mỏ – Địa chất", englishName: "Hanoi University of Mining and Geology (HUMG)", founded: 1966, type: "Trường đại học công lập chuyên đào tạo về kỹ thuật mỏ, địa chất, dầu khí, công trình, công nghệ thông tin, kinh tế và môi trường", location: "Số 18 Phố Viên, Phường Đức Thắng, Quận Bắc Từ Liêm, Hà Nội", website: "https://www.humg.edu.vn/", region: "Miền Bắc" },
+    { code: "KTA", name: "Trường Đại học Kiến trúc Hà Nội", englishName: "Hanoi Architectural University (HAU)", founded: 1969, type: "Trường đại học công lập chuyên đào tạo về kiến trúc, xây dựng, quy hoạch, mỹ thuật công nghiệp và công nghệ", location: "Km10, Đường Nguyễn Trãi, Quận Hà Đông, Hà Nội", website: "https://www.hau.edu.vn/", region: "Miền Bắc" },
+
+    { code: "HCM", name: "Đại học Quốc gia Thành phố Hồ Chí Minh", englishName: "Vietnam National University, Ho Chi Minh City (VNUHCM)", founded: 1995, type: "Hệ thống đại học công lập lớn nhất tại khu vực phía Nam", location: "Đường Linh Trung, Phường Linh Trung, Thành phố Thủ Đức, TP.HCM", website: "https://vnuhcm.edu.vn/", region: "Miền Nam" },
+    { code: "TDT", name: "Trường Đại học Tôn Đức Thắng", englishName: "Ton Duc Thang University (TDTU)", founded: 1997, type: "Trường đại học công lập tự chủ, đào tạo đa ngành, đa lĩnh vực", location: "Số 19 Nguyễn Hữu Thọ, Phường Tân Phong, Quận 7, TP.HCM", website: "https://www.tdtu.edu.vn/", region: "Miền Nam" },
+    { code: "HCMUT", name: "Trường Đại học Bách khoa – Đại học Quốc gia TP.HCM", englishName: "Ho Chi Minh City University of Technology (HCMUT)", founded: 1957, type: "Trường đại học công lập trọng điểm, thành viên Đại học Quốc gia TP.HCM", location: "268 Lý Thường Kiệt, Phường 14, Quận 10, TP.HCM", website: "https://www.hcmut.edu.vn/", region: "Miền Nam" },
+    { code: "UEL", name: "Trường Đại học Kinh tế - Luật – Đại học Quốc gia TP.HCM", englishName: "University of Economics and Law (UEL)", founded: 2000, type: "Trường đại học công lập đào tạo chuyên sâu về kinh tế, luật và quản lý", location: "669 Quốc lộ 1, khu phố 3, phường Linh Xuân, Thành phố Thủ Đức, TP.HCM", website: "https://www.uel.edu.vn/", region: "Miền Nam" },
+    { code: "IUH", name: "Trường Đại học Công nghiệp TP.HCM", englishName: "Industrial University of Ho Chi Minh City (IUH)", founded: 1956, type: "Trường đại học công lập đào tạo đa ngành, thuộc Bộ Công Thương", location: "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM", website: "https://iuh.edu.vn/", region: "Miền Nam" },
+    { code: "HUTECH", name: "Trường Đại học Công nghệ TP.HCM", englishName: "Ho Chi Minh City University of Technology (HUTECH)", founded: 1995, type: "Trường đại học tư thục đào tạo đa ngành", location: "475A Điện Biên Phủ, Phường 25, Quận Bình Thạnh, TP.HCM", website: "https://www.hutech.edu.vn/", region: "Miền Nam" },
+    { code: "UEH", name: "Trường Đại học Kinh tế TP.HCM", englishName: "University of Economics Ho Chi Minh City (UEH)", founded: 1976, type: "Trường đại học công lập trọng điểm quốc gia chuyên đào tạo về kinh tế, quản lý, luật, tài chính, ngân hàng", location: "59C Nguyễn Đình Chiểu, Phường 6, Quận 3, TP.HCM", website: "https://www.ueh.edu.vn/", region: "Miền Nam" },
+
+    { code: "DUE", name: "Trường Đại học Kinh tế – Đại học Đà Nẵng", englishName: "University of Economics - The University of Danang (DUE)", founded: 1975, type: "Trường đại học công lập đào tạo chuyên sâu về kinh tế, quản lý", location: "71 Ngũ Hành Sơn, Quận Ngũ Hành Sơn, Đà Nẵng", website: "https://due.udn.vn/", region: "Miền Trung" },
+    { code: "DUT", name: "Trường Đại học Bách khoa – Đại học Đà Nẵng", englishName: "University of Science and Technology - The University of Danang (DUT)", founded: 1975, type: "Trường đại học công lập kỹ thuật trọng điểm miền Trung", location: "54 Nguyễn Lương Bằng, Quận Liên Chiểu, Đà Nẵng", website: "https://dut.udn.vn/", region: "Miền Trung" },
+    { code: "UDN", name: "Đại học Đà Nẵng", englishName: "The University of Danang (UDN)", founded: 1994, type: "Hệ thống đại học công lập tại khu vực miền Trung", location: "41 Lê Duẩn, Quận Hải Châu, Đà Nẵng", website: "https://www.udn.vn/", region: "Miền Trung" }
+  ];
+
+  const schoolList = document.getElementById('schoolList');
+
+  function displaySchools(filteredSchools) {
+    schoolList.innerHTML = '';
+    if (filteredSchools.length === 0) {
+      schoolList.innerHTML = '<p>Không tìm thấy trường phù hợp.</p>';
+      return;
+    }
+    filteredSchools.forEach(school => {
+      const schoolItem = document.createElement('div');
+      schoolItem.className = 'school-item';
+      schoolItem.innerHTML = `
+        <h4>${school.name}</h4>
+        <p><strong>Mã:</strong> ${school.code}</p>
+        <p><strong>Tiếng Anh:</strong> ${school.englishName}</p>
+        <p><strong>Năm thành lập:</strong> ${school.founded}</p>
+        <p><strong>Loại hình:</strong> ${school.type}</p>
+        <p><strong>Vị trí:</strong> ${school.location}</p>
+        <p><strong>Website:</strong> <a href="${school.website}" target="_blank">${school.website}</a></p>
+      `;
+      schoolList.appendChild(schoolItem);
+    });
+  }
+
+  // Hàm bỏ dấu tiếng Việt
+  function removeVietnameseTones(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
+  }
+
+  function filterSchools() {
+    const keyword = document.getElementById('searchInput').value.toLowerCase();
+    const region = document.getElementById('regionSelect').value;
+
+    const filtered = schools.filter(school => {
+      const schoolName = removeVietnameseTones(school.name.toLowerCase());
+      const keywordNormalized = removeVietnameseTones(keyword);
+
+      const matchesKeyword = schoolName.includes(keywordNormalized) || school.code.toLowerCase().includes(keywordNormalized);
+
+      const matchesRegion = region ? school.region.includes(region) : true;
+      return matchesKeyword && matchesRegion;
+    });
+
+    displaySchools(filtered);
+  }
+
+  function resetSchools() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('regionSelect').value = '';
+    displaySchools(schools);
+  }
+
+  // Load tất cả trường khi mới vào
+  window.onload = () => {
+    displaySchools(schools);
+  };
+</script>
+
+</body>
+</html>
