@@ -9,7 +9,8 @@
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f4ff;
+      background: url('BGUI.png') no-repeat center center fixed;
+      background-size: cover;
       color: #0036cc;
       min-height: 100vh;
       display: flex;
