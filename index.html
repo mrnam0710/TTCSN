@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<header>HỆ THỐNG TRA CỨU THÔNG TIN TRƯỜNG ĐẠI HỌC VỀ NGÀNH CÔNG NGHỆ THÔNG TIN</header>
+<header>Hệ thống tra cứu ngành Công nghệ thông tin</header>
 
 <section class="hero">
   <div class="hero-content">
@@ -24,7 +24,7 @@
   <section class="intro-section">
     <div class="intro-card">
       <h2>🔍 Tra cứu trường học</h2>
-      <p>Dễ dàng tìm kiếm trường về CNTT theo tên trường, vùng miền.</p>
+      <p>Dễ dàng tìm kiếm ngành CNTT theo tên trường, theo miền.</p>
     </div>
     <div class="intro-card">
       <h2>⚡ Nhanh chóng & hiệu quả</h2>
@@ -46,7 +46,7 @@
         <option value="Miền Trung">Miền Trung</option>
         <option value="Miền Nam">Miền Nam</option>
       </select>
-      <button onclick="filterSchools(); validateSearch()">Tìm kiếm</button>
+      <button onclick="filterSchools()">Tìm kiếm</button>
       <button onclick="resetSchools()" class="reset-btn">Xóa và đặt lại</button>
     </div>
 
@@ -78,7 +78,7 @@
 </div>
 
 <script>
-  // Dữ liệu mẫu (không đổi)
+  // Dữ liệu mẫu 
   const schools = [
     { code: "BKA", name: "Đại học Bách khoa Hà Nội", englishName: "Hanoi University of Science and Technology (HUST)", founded: 1956, type: "Trường đại học công lập trọng điểm quốc gia", location: "Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội", website: "https://www.hust.edu.vn/", region: "Miền Bắc" },
     { code: "QHI", name: "Trường Đại học Công nghệ – Đại học Quốc gia Hà Nội", englishName: "VNU University of Engineering and Technology (VNU-UET)", founded: 2004, type: "Trường đại học công lập, thành viên của Đại học Quốc gia Hà Nội", location: "144 Xuân Thủy, Cầu Giấy, Hà Nội", website: "https://uet.vnu.edu.vn/", region: "Miền Bắc" },
@@ -105,17 +105,6 @@
   ];
 
   const schoolList = document.getElementById('schoolList');
-
-  //Hàm cảnh báo nhập không hợp lệ
-  function validateSearch() {
-      const input = document.getElementById("searchInput").value.trim();
-      // Biểu thức chính quy kiểm tra nếu chuỗi chứa ít nhất 1 ký tự chữ cái
-      const regex = /^[\p{L}\s]+$/u;
-      // Kiểm tra rỗng hoặc không khớp với regex
-      if (input === "" || !regex.test(input)) {
-          alert("Không hợp lệ, vui lòng nhập lại");
-          return;
-      }
 
   // Các hàm displaySchools, removeVietnameseTones, filterSchools, resetSchools 
   function displaySchools(filteredSchools) {
