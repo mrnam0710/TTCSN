@@ -46,7 +46,7 @@
         <option value="Miền Trung">Miền Trung</option>
         <option value="Miền Nam">Miền Nam</option>
       </select>
-      <button onclick="filterSchools()">Tìm kiếm</button>
+      <button onclick="filterSchools(); validateSearch()">Tìm kiếm</button>
       <button onclick="resetSchools()" class="reset-btn">Xóa và đặt lại</button>
     </div>
 
@@ -106,7 +106,18 @@
 
   const schoolList = document.getElementById('schoolList');
 
-  // Các hàm displaySchools, removeVietnameseTones, filterSchools, resetSchools không đổi
+  //Hàm cảnh báo nhập không hợp lệ
+  function validateSearch() {
+      const input = document.getElementById("searchInput").value.trim();
+      // Biểu thức chính quy kiểm tra nếu chuỗi chứa ít nhất 1 ký tự chữ cái
+      const regex = /^[\p{L}\s]+$/u;
+      // Kiểm tra rỗng hoặc không khớp với regex
+      if (input === "" || !regex.test(input)) {
+          alert("Không hợp lệ, vui lòng nhập lại");
+          return;
+      }
+
+  // Các hàm displaySchools, removeVietnameseTones, filterSchools, resetSchools 
   function displaySchools(filteredSchools) {
     schoolList.innerHTML = '';
     if (filteredSchools.length === 0) {
