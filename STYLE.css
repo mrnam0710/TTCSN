@@ -135,8 +135,7 @@
       margin-top: 40px;
       transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
       opacity: 1;
-      max-height: 5000px; /* Increased max-height significantly */
-      /* overflow: hidden;  <- REMOVED */
+      max-height: 5000px; /* Increased max-height */
     }
     /* ============================================ */
 
@@ -144,17 +143,14 @@
         display: none;
     }
 
-    /* === CSS Change: Removed overflow: hidden === */
     .is-hidden {
         opacity: 0;
         max-height: 0;
-        /* overflow: hidden; <- REMOVED */
-        /* Ensure margin/padding collapse when hidden */
         margin-top: 0;
         margin-bottom: 0;
         padding-top: 0;
         padding-bottom: 0;
-        border: none; /* Hide borders if any */
+        border: none;
     }
     /* ============================================ */
 
